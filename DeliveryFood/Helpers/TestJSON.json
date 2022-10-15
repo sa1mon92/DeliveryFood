@@ -42,5 +42,101 @@
          "price": 345,
          "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Pizza3.png"
         }
+        {
+         "id": 4,
+         "category": "Комбо",
+         "name": "Комбо сет 1",
+         "description": "Кола, бургер, картошка",
+         "price": 320,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Kombo0.png"
+        },
+        {
+         "id": 5,
+         "category": "Комбо",
+         "name": "Комбо сет 2",
+         "description": "Пицца, песпи",
+         "price": 400,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Kombo1.png"
+        },
+        {
+         "id": 6,
+         "category": "Комбо",
+         "name": "Комбо сет 3",
+         "description": "Пепси, картошка фри, цезарь ролл",
+         "price": 237,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Kombo2.png"
+        },
+        {
+         "id": 7,
+         "category": "Комбо",
+         "name": "Комбо сет 4",
+         "description": "Сэндвич, кола",
+         "price": 522,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Kombo3.png"
+        },
+        {
+         "id": 8,
+         "category": "Десерт",
+         "name": "Пудинг",
+         "description": "Пудинг с ягодами",
+         "price": 100,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Desert0.png"
+        },
+        {
+         "id": 9,
+         "category": "Десерт",
+         "name": "Сырники",
+         "description": "Сырники со сметаной",
+         "price": 90,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Desert1.png"
+        },
+        {
+         "id": 10,
+         "category": "Десерт",
+         "name": "Торт",
+         "description": "Торт ягодный",
+         "price": 120,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Desert2.png"
+        },
+        {
+         "id": 11,
+         "category": "Десерт",
+         "name": "Торт",
+         "description": "Торт ягодный",
+         "price": 231,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Desert3.png"
+        },
+        {
+         "id": 12,
+         "category": "Напиток",
+         "name": "Кола",
+         "description": "Кола",
+         "price": 100,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Napitok0.png"
+        },
+        {
+         "id": 13,
+         "category": "Напиток",
+         "name": "Фанта",
+         "description": "Фанта",
+         "price": 100,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Napitok1.png"
+        },
+        {
+         "id": 14,
+         "category": "Напиток",
+         "name": "Спрайт",
+         "description": "Спрайт",
+         "price": 100,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Napitok2.png"
+        },
+        {
+         "id": 15,
+         "category": "Напиток",
+         "name": "Чай",
+         "description": "Чай",
+         "price": 50,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Napitok3.png"
+        }
     ]
 }
