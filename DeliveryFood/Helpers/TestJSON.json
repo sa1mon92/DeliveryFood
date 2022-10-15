@@ -41,7 +41,7 @@
          "description": "Соус Карбонара, Сыр Моцарелла, Сыр Пармезан, Сыр Роккфорти, Сыр Чеддер (тёртый)",
          "price": 345,
          "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestImages/Meals/Pizza3.png"
-        }
+        },
         {
          "id": 4,
          "category": "Комбо",

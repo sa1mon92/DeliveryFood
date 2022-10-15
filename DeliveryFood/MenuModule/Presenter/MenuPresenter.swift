@@ -10,6 +10,7 @@ import Foundation
 protocol MenuViewPresenterProtocol: AnyObject {
     init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol, router: RouterProtocol)
     var model: MenuModel? { get }
+    var meals: [Meal]? { get }
     var currentCity: String? { get }
     var currentCategoryIndex: Int { get }
     func getData()
@@ -27,6 +28,21 @@ class MainPresenter: MenuViewPresenterProtocol {
     var router: RouterProtocol?
     var currentCity: String? = "Москва"
     var currentCategoryIndex: Int = 0
+    
+    var meals: [Meal]? {
+        switch currentCategoryIndex {
+        case 0:
+            return model?.meals.filter { $0.category == "Пицца" }
+        case 1:
+            return model?.meals.filter { $0.category == "Комбо" }
+        case 2:
+            return model?.meals.filter { $0.category == "Десерт" }
+        case 3:
+            return model?.meals.filter { $0.category == "Напиток" }
+        default:
+            return nil
+        }
+    }
     
     required init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol, router: RouterProtocol) {
         self.view = view
@@ -63,7 +79,6 @@ class MainPresenter: MenuViewPresenterProtocol {
     
     func getData() {
         guard let url = Constants.mainAPI else { return }
-        
         networkManager?.getData(type: MenuModel.self, from: url, completion: { [weak self] result in
             DispatchQueue.main.async {
                 switch result {

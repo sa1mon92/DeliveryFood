@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let router = Router(tabBarController: tabBarController, assemblyBuilder: assemblyBuilder)
         router.initialViewController()
         window?.rootViewController = tabBarController
+        window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
     }
 

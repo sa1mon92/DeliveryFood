@@ -180,12 +180,12 @@ extension MenuViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.model?.meals.count ?? 0
+        presenter.meals?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MealsTableViewCell", for: indexPath) as! MealsTableViewCell
-        if let model = presenter.model?.meals[indexPath.row] {
+        if let model = presenter.meals?[indexPath.row] {
             cell.setup(model: model)
         }
         return cell
