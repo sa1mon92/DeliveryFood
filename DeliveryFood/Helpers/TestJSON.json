@@ -1,0 +1,46 @@
+{
+    "topSales": [
+        {
+         "id": 0,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryTest/main/DeliveryTest/Helpers/TestImages/TopSales/Sale0.png"
+        },
+        {
+         "id": 1,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryTest/main/DeliveryTest/Helpers/TestImages/TopSales/Sale1.png"
+        }
+    ],
+    "meals": [
+        {
+         "id": 0,
+         "category": "Пицца",
+         "name": "Ветчина и грибы",
+         "description": "Ветчина,шампиньоны, увеличинная порция моцареллы, томатный соус",
+         "price": 345,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryTest/main/DeliveryTest/Helpers/TestImages/Meals/Pizza0.png"
+        },
+        {
+         "id": 1,
+         "category": "Пицца",
+         "name": "Баварские колбаски",
+         "description": "Баварски колбаски,ветчина, пикантная пепперони, острая чоризо, моцарелла, томатный соус",
+         "price": 345,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryTest/main/DeliveryTest/Helpers/TestImages/Meals/Pizza1.png"
+        },
+        {
+         "id": 2,
+         "category": "Пицца",
+         "name": "Нежный лосось",
+         "description": "Лосось, томаты черри, моцарелла, соус песто",
+         "price": 345,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryTest/main/DeliveryTest/Helpers/TestImages/Meals/Pizza2.png"
+        },
+        {
+         "id": 3,
+         "category": "Пицца",
+         "name": "Пицца четыре сыра",
+         "description": "Соус Карбонара, Сыр Моцарелла, Сыр Пармезан, Сыр Роккфорти, Сыр Чеддер (тёртый)",
+         "price": 345,
+         "imageURL": "https://raw.githubusercontent.com/sa1mon92/DeliveryTest/main/DeliveryTest/Helpers/TestImages/Meals/Pizza3.png"
+        }
+    ]
+}
