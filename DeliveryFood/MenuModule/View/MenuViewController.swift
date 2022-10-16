@@ -9,7 +9,7 @@ import UIKit
 
 protocol MenuViewProtocol: AnyObject {
     func reloadData()
-    func showFailure(error: Error)
+    func showAlert(title: String, message: String)
 }
 
 class MenuViewController: UIViewController {
@@ -26,11 +26,19 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideViews(true)
         presenter.getData()
         setupCityButton()
         setupTopSalesCollectionView()
         setupCategoryCollectionView()
         setupMealsTableView()
+    }
+    
+    private func hideViews(_ isHidden: Bool) {
+        cityButton.isHidden = isHidden
+        topSalesCollectionView.isHidden = isHidden
+        categoryCollectionView.isHidden = isHidden
+        mealsTableView.isHidden = isHidden
     }
     
     private func setupCityButton() {
@@ -210,13 +218,19 @@ extension MenuViewController: UITableViewDataSource {
 }
 
 extension MenuViewController: MenuViewProtocol {
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func reloadData() {
+        if let _ = presenter.model {
+            hideViews(false)
+        }
         topSalesCollectionView.reloadData()
         categoryCollectionView.reloadData()
         mealsTableView.reloadData()
-    }
-    
-    func showFailure(error: Error) {
-        //
     }
 }

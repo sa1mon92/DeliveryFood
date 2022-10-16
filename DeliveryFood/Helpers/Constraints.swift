@@ -9,7 +9,7 @@ import UIKit
 
 class Constants {
     
-    static let mainAPI = Bundle.main.url(forResource: "TestJSON", withExtension: "json")
+    static let mainAPI = "https://raw.githubusercontent.com/sa1mon92/DeliveryFood/main/DeliveryFood/Helpers/TestJSON.json"
     
     static let topSaleCellSize = CGSize(width: 300, height: 112)
     static let categoryCellSize = CGSize(width: 88, height: 32)

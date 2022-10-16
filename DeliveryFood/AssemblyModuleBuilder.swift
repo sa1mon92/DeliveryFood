@@ -21,7 +21,8 @@ class AssemblyModuleBuilder: AssemblyBuilderProtocol {
         view.tabBarItem.image =  UIImage(named: "Menu")
         view.tabBarItem.title = "Меню"
         let networkManager = NetworkManager()
-        let presenter = MainPresenter(view: view, networkManager: networkManager, router: router)
+        let saveManager = SaveManager()
+        let presenter = MainPresenter(view: view, networkManager: networkManager, saveManager: saveManager, router: router)
         view.presenter = presenter
         return UINavigationController(rootViewController: view)
     }

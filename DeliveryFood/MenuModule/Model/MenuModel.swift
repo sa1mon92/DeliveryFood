@@ -14,6 +14,15 @@ struct MenuModel: Codable {
     struct TopSale: Codable {
         let id: Int
         let imageURL: String
+        
+        init?(id: Int?, imageURL: String?) {
+            guard let id = id,
+                  let imageURL = imageURL
+            else { return nil }
+            
+            self.id = id
+            self.imageURL = imageURL
+        }
     }
 }
 
@@ -24,4 +33,21 @@ struct Meal: Codable {
     let description: String
     let price: Int
     let imageURL: String
+    
+    init?(id: Int?, category: String?, name: String?, description: String?, price: Int?, imageURL: String?) {
+        guard let id = id,
+           let category = category,
+           let name = name,
+           let description = description,
+           let price = price,
+           let imageURL = imageURL
+        else { return nil }
+        
+        self.id = id
+        self.category = category
+        self.name = name
+        self.description = description
+        self.price = price
+        self.imageURL = imageURL
+    }
 }

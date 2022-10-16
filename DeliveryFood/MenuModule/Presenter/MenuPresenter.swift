@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MenuViewPresenterProtocol: AnyObject {
-    init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol, router: RouterProtocol)
+    init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol, saveManager: SaveManagerProtocol, router: RouterProtocol)
     var model: MenuModel? { get }
     var meals: [Meal]? { get }
     var currentCity: String? { get }
@@ -23,6 +23,7 @@ protocol MenuViewPresenterProtocol: AnyObject {
 class MainPresenter: MenuViewPresenterProtocol {
     
     let networkManager: NetworkManagerProtocol!
+    let saveManager: SaveManagerProtocol!
     weak var view: MenuViewProtocol?
     internal var model: MenuModel?
     var router: RouterProtocol?
@@ -44,9 +45,10 @@ class MainPresenter: MenuViewPresenterProtocol {
         }
     }
     
-    required init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol, router: RouterProtocol) {
+    required init(view: MenuViewProtocol, networkManager: NetworkManagerProtocol, saveManager: SaveManagerProtocol, router: RouterProtocol) {
         self.view = view
         self.networkManager = networkManager
+        self.saveManager = saveManager
         self.router = router
     }
     
@@ -73,20 +75,22 @@ class MainPresenter: MenuViewPresenterProtocol {
         print("DEBUG: City button did tapped")
     }
     
-    func tapOnTheSale(index: Int) {
-        //
-    }
-    
     func getData() {
-        guard let url = Constants.mainAPI else { return }
+        guard let url = URL(string: Constants.mainAPI) else { return }
         networkManager?.getData(type: MenuModel.self, from: url, completion: { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let model):
                     self?.model = model
+                    self?.saveManager.saveMenu(model: model)
                     self?.view?.reloadData()
                 case .failure(let error):
-                    self?.view?.showFailure(error: error)
+                    if let urlError = error as? URLError, urlError.code.rawValue == -1009 {
+                        if let menuModel = self?.saveManager.getSavedMenu() {
+                            self?.model = menuModel
+                        }
+                        self?.view?.showAlert(title: "Internet not connected", message: "Please check your internet connection and try again")
+                    }
                 }
             }
         })
