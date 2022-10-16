@@ -85,8 +85,11 @@ class MenuViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension MenuViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // numberOfItemsInSection for topSalesCollectionView
         if collectionView == topSalesCollectionView {
             return presenter.model?.topSales.count ?? 0
+            
+        // numberOfItemsInSection for categoryCollectionView
         } else if collectionView == categoryCollectionView {
             return Constants.categories.count
         } else {
@@ -96,6 +99,7 @@ extension MenuViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        // cellForItemAt fortopSalesCollectionView
         if collectionView == topSalesCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopSaleCollectionViewCell", for: indexPath) as! TopSaleCollectionViewCell
             if let model = presenter.model?.topSales[indexPath.row] {
@@ -104,6 +108,8 @@ extension MenuViewController: UICollectionViewDataSource {
                 cell.setOpacity(xPosition: realCenter.x, cellWidth: Constants.topSaleCellSize.width)
             }
             return cell
+            
+        // cellForItemAt categoryCollectionView
         } else if collectionView == categoryCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
             let categoryName = Constants.categories[indexPath.row]
@@ -125,8 +131,11 @@ extension MenuViewController: UICollectionViewDataSource {
 extension MenuViewController: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // scrollViewDidScroll for topSalesCollectionView
         if scrollView == topSalesCollectionView {
             topSalesCollectionView.reloadData()
+            
+        // scrollViewDidScroll for mealsTableView
         } else if scrollView == mealsTableView {
             let alpha = (100.0 - min(100.0, scrollView.contentOffset.y)) / 100.0
             topSalesCollectionView.alpha = (100.0 - min(100.0, scrollView.contentOffset.y)) / 100.0
@@ -137,8 +146,12 @@ extension MenuViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // didSelectItemAt for categoryCollectionView
         if collectionView == categoryCollectionView {
             presenter.categoryDidSelected(index: indexPath.row)
+            
+        // didSelectItemAt for topSalesCollectionView
         } else if collectionView == topSalesCollectionView {
             if let model = presenter.model?.topSales[indexPath.row] {
                 presenter.topSaleDidSelected(model: model)
@@ -150,8 +163,12 @@ extension MenuViewController: UICollectionViewDelegate {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        // sizeForItemAt for topSalesCollectionView
         if collectionView == topSalesCollectionView {
-            return Constants.topSaleCellSize
+            return CGSize(width: Constants.topSaleCellSize.width, height: topSalesCollectionView.bounds.height)
+        
+        // sizeForItemAt for categoryCollectionView
         } else if collectionView == categoryCollectionView {
             return Constants.categoryCellSize
         } else {
