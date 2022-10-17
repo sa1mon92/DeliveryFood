@@ -150,6 +150,7 @@ extension MenuViewController: UICollectionViewDelegate {
             mealsTableView.layer.cornerRadius = 20 * alpha
             topSalesCollectionViewTopConstraint.constant = 24 * alpha
             topSalesCollectionViewHeightConstraint.constant = 112 * alpha
+            topSalesCollectionView.reloadData()
         }
     }
     
